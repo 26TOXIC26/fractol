@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/10 23:44:01 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/14 01:10:26 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <mlx.h>
-
+#include <stdio.h>
 typedef struct	s_data {
 	void	*img;
 	char	*addr;
@@ -34,49 +34,46 @@ int	main(void)
 	void	*mlx;
 	void	*mlx_win;
 	t_data	img;
-    int x = 55;
-    int y = 55;
+    float x = 200;
+    float y = 200;
 
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 400, 400, "Hello world!");
 	img.img = mlx_new_image(mlx, 400, 400);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	while (x < 85)
-    {
-        my_mlx_pixel_put(&img, x, y, 0x00FF0000);
-        x++;
-        if (x == 85)
-        {
-            while (y < 85)
-            {
-                my_mlx_pixel_put(&img, x, y, 0x00FFFFFF);
-                y++;
-                if (y == 85)
-                {
-                    while (x > 55)
-                    {
-                        my_mlx_pixel_put(&img, x, y, 0x00FF0000);
-                        x--;
-                        if (x == 55)
-                        {
-                            while (y > 55)
-                            {
-                                my_mlx_pixel_put(&img, x, y, 0x00FFFFFF);
-                                y--;
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
-        }
-        
-    }
-    
+    // while (x <= 400)
+    // {
+    //     my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+    //     x++;
+    // }
+    // y = 0;
+    // x = 200;
+    // while (y <= 400)
+    // {
+    //     my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+    //     y++;               
+    // }
+	// x = 0;
+	// y = 0;
+	// while (y <= 400 || x <= 400)
+	// {
+	// 	my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+	// 	x++;
+	// 	y++;
+	// }
+	// x = 0;
+	// while (x <= 400 || y >= 0)
+	// {
+	// 	my_mlx_pixel_put(&img, x, y, 0x00FF0000);
+	// 	x++;
+	// 	y--;
+	// }
+	int a = (x / 400) * 4 - 2;
+	int b = (y / 400) * 4 - 2;
+	my_mlx_pixel_put(&img, ((a+2)/4*400), ((b+2)/4*400), 0x00FF0000);
+	
+	
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
 }
