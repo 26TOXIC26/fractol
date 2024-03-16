@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/05 11:10:34 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/23 04:00:43 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
-
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
-		
+	if (!src && !dest)
+		return (NULL);
+	if (dest == src)
+		return (dest);
+	if (dest <= src || dest >= (src + n))
+		ft_memcpy(dest, src, n);
+	else
+	{
+		while (n--)
+			((unsigned char *)dest)[n] = ((unsigned char *)src)[n];
+	}
+	return (dest);
 }

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/09 12:04:27 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/23 02:57:16 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
-		
+	str1 = (const unsigned char *)s1;
+	str2 = (const unsigned char *)s2;
+	while (n)
+	{
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+		n--;
+	}
+	return (0);
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/18 18:30:50 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/22 08:47:37 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
+	long	nb;
 
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
-		
+	nb = n;
+	if (fd >= 0)
+	{
+		if (nb < 0)
+		{
+			ft_putchar_fd('-', fd);
+			nb = nb * -1;
+		}
+		if (nb >= 10)
+		{
+			ft_putnbr_fd(nb / 10, fd);
+			ft_putnbr_fd(nb % 10, fd);
+		}
+		else
+			ft_putchar_fd(nb + 48, fd);
+	}
 }

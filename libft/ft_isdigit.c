@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/10/31 15:22:13 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/04 00:16:21 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
-
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
-		
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

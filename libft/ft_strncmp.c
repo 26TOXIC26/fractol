@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/09 23:52:27 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/22 08:52:47 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
+	size_t	i;
 
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
-		
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (i < (n - 1) && s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

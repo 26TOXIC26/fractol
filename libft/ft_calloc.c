@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/16 02:00:32 by amousaid         ###   ########.fr       */
+/*   Created: 2023/11/07 19:58:43 by amousaid          #+#    #+#             */
+/*   Updated: 2023/11/24 01:01:51 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_comp x;
-	int x_sc;
-	int y_sc;
-	x.real = 100;
-	x.imaginer = 200;
-	x_sc = (x.real/400) * 4 - 2;
-	y_sc = ((x.imaginer/400) * 4 - 2) * -1;
+	void	*ptr;
+	size_t	total;
 
-	printf("x--->%d\ny-->%d\n", x_sc, y_sc);
+	total = size * count;
+	if (total == 0)
+	{
+		ptr = malloc(1);
+		((char *)ptr)[0] = 0;
+	}
+	else
+	{
 		
+		if (size && ((total / size) != (count)))
+			return (NULL);
+		ptr = malloc(total);
+		if (ptr == NULL)
+			return (NULL);
+		ft_bzero(ptr, total);
+	}
+	return (ptr);
 }
