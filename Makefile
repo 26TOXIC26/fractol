@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
+#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/16 23:27:30 by pc               ###   ########.fr        #
+#    Updated: 2024/03/18 06:20:24 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ MLX_CMD = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 LIBFT = ./libft/libft.a
 FRACTOL_SRC = ./mandatory/fractol.c\
-
+				./mandatory/mandelbrot.c\
+				
+				
 OBJ = $(FRACTOL_SRC:.c=.o)
 
 all: $(NAME)

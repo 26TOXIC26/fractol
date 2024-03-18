@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/18 02:24:24 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/18 07:05:14 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,65 +19,29 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
-int man(double cr, double  ci)
-{
-	double tmp;
-	t_comp z;
-	z.r = 0;
-	z.i = 0;
-	int i = 0;
 
-	while (i < 40)
+int	close_all(int keycode, t_ml *param)
+{
+	if (keycode == 65307)
 	{
-		if ((z.r * z.r + z.i * z.i) > 4.0 && (z.r * z.r + z.i * z.i) < 6.0)
-			return (0);
-		else if ((z.r * z.r + z.i * z.i) >= 6.0)
-			return (2);
-		tmp = (z.r * z.r) - (z.i * z.i);
-		z.i = 2 * z.r * z.i;
-		z.r = tmp;
-		z.r += cr;
-		z.i += ci;
-		i++;
+		mlx_destroy_window(param->mlx, param->win);
+		exit(0);
 	}
-	return (1);
+	return (0);
 }
+
 int	main()
 {
-	t_comp pixel;
-	t_comp scile;
-	void	*mlx;
-	void	*mlx_win;
+	t_ml param;
 	t_data	img;
-	
-	
 
-	pixel.i = 0;
-	pixel.r = 0;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 400, 400, "Hello world!");
-	img.img = mlx_new_image(mlx, 400, 400);
+	param.mlx = mlx_init();
+	param.win = mlx_new_window(param.mlx, WIDTH, HEIGHT, "Hello world!");
+	img.img = mlx_new_image(param.mlx, WIDTH, HEIGHT);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 								&img.endian);
-	while (pixel.i < 400)
-	{
-		scile.i = ((pixel.i / 400) * 4 - 2) * -1;
-		while (pixel.r < 400)
-		{
-			scile.r = (pixel.r/400) * 4 - 2;	
-			if (man(scile.r, scile.i) == 0)
-				my_mlx_pixel_put(&img, pixel.r, pixel.i, 0x00FF0000);
-			else if (man(scile.r, scile.i) == 1)
-				my_mlx_pixel_put(&img, pixel.r, pixel.i, 0x000000FF);
-			else
-				my_mlx_pixel_put(&img, pixel.r, pixel.i, 0x00FFFF00);
-			pixel.r++;
-		}
-		pixel.i++;
-		pixel.r = 0;
-	}
-	
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);	
+	mandelbrot(img);
+	mlx_put_image_to_window(param.mlx, param.win, img.img, 0, 0);
+	mlx_hook(param.win, 2, 1L<<0, close_all, &param);
+	mlx_loop(param.mlx);
 }
