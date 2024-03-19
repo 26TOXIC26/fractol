@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/18 23:33:34 by amousaid         ###   ########.fr        #
+#    Updated: 2024/03/19 07:19:48 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CC = cc
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 MLX_PATH = ./minilibx
 MLX_NAME = ./minilibx/libmlx.a

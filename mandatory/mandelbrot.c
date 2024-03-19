@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 04:13:03 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/19 01:52:40 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/19 07:41:10 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void mandelbrot(t_ml fractol)
 
 	while (pixel.i < HEIGHT)
 	{
-		scile.i = (((pixel.i / HEIGHT) * 4 - 2) * -1) * fractol.zoom;
+		scile.i = (((pixel.i / HEIGHT) * 4 - 2) * -1) * fractol.zoom + fractol.plus_y + fractol.mainis_y;
 		while (pixel.r < WIDTH)
 		{
-			scile.r = ((pixel.r / WIDTH) * 4 - 2) * fractol.zoom;
+			scile.r = ((pixel.r / WIDTH) * 4 - 2) * fractol.zoom + fractol.plus_x + fractol.mainis_x;
 			if (mandelbrot_do(scile.r, scile.i) == ITR)
 				my_mlx_pixel_put(&fractol, pixel.r, pixel.i, 0x00000000);
 			else

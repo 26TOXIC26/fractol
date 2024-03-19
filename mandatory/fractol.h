@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/19 02:01:20 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/19 07:35:42 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ typedef struct	s_ml {
 	//zoom
 	double zoom;
 	//shift
+	double plus_x;
+	double plus_y;
+	double mainis_x;
+	double mainis_y;
 	
 }				t_ml;
 

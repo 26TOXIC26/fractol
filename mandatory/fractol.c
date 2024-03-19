@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/19 02:24:58 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/19 07:45:10 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,22 @@ int keycheck(int keycode, t_ml *param)
 	if (keycode == XK_Escape)
 		close_all(param);
 	else if (keycode == XK_Up)
-	{
-		
-	}
+		param->plus_y += 0.005;
+	else if (keycode == XK_Down)
+		param->mainis_y -= 0.005;
+	else if (keycode == XK_Right)
+		param->plus_x += 0.005;
+	else if (keycode == XK_Left)
+		param->mainis_x -= 0.005;
 	
 	return (0);
 }
 
-void hook(t_ml fractol)
+void hook(t_ml *fractol)
 {
-	mlx_mouse_hook(fractol.win, mouse_move, &fractol);
-	mlx_hook(fractol.win, KeyPress, KeyPressMask, keycheck, &fractol);
-	mlx_hook(fractol.win, DestroyNotify, StructureNotifyMask, close_all, &fractol);
+	mlx_mouse_hook(fractol->win, mouse_move, fractol);
+	mlx_hook(fractol->win, KeyPress, KeyPressMask, keycheck, fractol);
+	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_all, fractol);
 }
 
 int	main()
@@ -60,6 +64,6 @@ int	main()
 								&fractol.endian);
 	fractol.zoom = 1;
 	mandelbrot(fractol);
-	hook(fractol);
+	hook(&fractol);
 	mlx_loop(fractol.mlx);
 }
