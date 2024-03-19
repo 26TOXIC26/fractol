@@ -6,13 +6,13 @@
 #    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/18 06:20:24 by amousaid         ###   ########.fr        #
+#    Updated: 2024/03/18 23:33:34 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 RM = rm -rf
 MLX_PATH = ./minilibx
 MLX_NAME = ./minilibx/libmlx.a
@@ -21,7 +21,7 @@ MLX_CMD = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 LIBFT = ./libft/libft.a
 FRACTOL_SRC = ./mandatory/fractol.c\
 				./mandatory/mandelbrot.c\
-				
+				./mandatory/zoom.c			
 				
 OBJ = $(FRACTOL_SRC:.c=.o)
 

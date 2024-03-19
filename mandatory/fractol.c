@@ -6,13 +6,13 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/18 07:05:14 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/19 02:24:58 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(t_ml *data, int x, int y, int color)
 {
 	char	*dst;
 
@@ -20,28 +20,46 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-int	close_all(int keycode, t_ml *param)
+int	close_all(t_ml *param)
 {
-	if (keycode == 65307)
+	mlx_destroy_image(param->mlx, param->img);
+	mlx_destroy_window(param->mlx, param->win);
+	mlx_destroy_display(param->mlx);
+	free(param->mlx);
+	exit(0);
+}
+int keycheck(int keycode, t_ml *param)
+{
+	if (keycode == XK_Escape)
+		close_all(param);
+	else if (keycode == XK_Up)
 	{
-		mlx_destroy_window(param->mlx, param->win);
-		exit(0);
+		
 	}
+	
 	return (0);
+}
+
+void hook(t_ml fractol)
+{
+	mlx_mouse_hook(fractol.win, mouse_move, &fractol);
+	mlx_hook(fractol.win, KeyPress, KeyPressMask, keycheck, &fractol);
+	mlx_hook(fractol.win, DestroyNotify, StructureNotifyMask, close_all, &fractol);
 }
 
 int	main()
 {
-	t_ml param;
-	t_data	img;
+	t_ml fractol;
 
-	param.mlx = mlx_init();
-	param.win = mlx_new_window(param.mlx, WIDTH, HEIGHT, "Hello world!");
-	img.img = mlx_new_image(param.mlx, WIDTH, HEIGHT);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	mandelbrot(img);
-	mlx_put_image_to_window(param.mlx, param.win, img.img, 0, 0);
-	mlx_hook(param.win, 2, 1L<<0, close_all, &param);
-	mlx_loop(param.mlx);
+	fractol.mlx = mlx_init();
+
+	
+	fractol.win = mlx_new_window(fractol.mlx, WIDTH, HEIGHT, "Hello world!");
+	fractol.img = mlx_new_image(fractol.mlx, WIDTH, HEIGHT);
+	fractol.addr = mlx_get_data_addr(fractol.img, &fractol.bits_per_pixel, &fractol.line_length,
+								&fractol.endian);
+	fractol.zoom = 1;
+	mandelbrot(fractol);
+	hook(fractol);
+	mlx_loop(fractol.mlx);
 }
