@@ -6,7 +6,7 @@
 #    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 10:31:55 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/16 07:15:33 by pc               ###   ########.fr        #
+#    Updated: 2024/03/20 21:27:23 by pc               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC= ft_isalpha.c\
      ft_putendl_fd.c\
      ft_putnbr_fd.c\
      ft_memcpy.c\
+     atodbl.c\
 
 BONUS_SRC= ft_lstnew_bonus.c\
 	   ft_lstadd_front_bonus.c\
