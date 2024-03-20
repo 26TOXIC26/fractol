@@ -6,21 +6,23 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 04:13:03 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/19 07:41:10 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/20 04:55:54 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int mandelbrot_do(double cr, double ci)
+int mandelbrot_do(double cr, double ci, int itr)
 {
 	double tmp;
+	int i;
 	t_ml z;
 	z.r = 0;
 	z.i = 0;
-	int i = 0;
+	tmp = 0.0;
+	i = 0;
 
-	while (i < ITR)
+	while (i < itr)
 	{
 		if ((z.r * z.r + z.i * z.i) > 4.0)
 			break;
@@ -41,6 +43,8 @@ void mandelbrot(t_ml fractol)
 
 	pixel.i = 0;
 	pixel.r = 0;
+	scile.r = 0;
+	scile.i = 0;
 
 	while (pixel.i < HEIGHT)
 	{
@@ -48,10 +52,10 @@ void mandelbrot(t_ml fractol)
 		while (pixel.r < WIDTH)
 		{
 			scile.r = ((pixel.r / WIDTH) * 4 - 2) * fractol.zoom + fractol.plus_x + fractol.mainis_x;
-			if (mandelbrot_do(scile.r, scile.i) == ITR)
+			if (mandelbrot_do(scile.r, scile.i, fractol.itr) == (int)fractol.itr)
 				my_mlx_pixel_put(&fractol, pixel.r, pixel.i, 0x00000000);
 			else
-				my_mlx_pixel_put(&fractol, pixel.r, pixel.i, (mandelbrot_do(scile.r, scile.i) * 300)<<16);
+				my_mlx_pixel_put(&fractol, pixel.r, pixel.i, (mandelbrot_do(scile.r, scile.i, fractol.itr) * 290) << fractol.shift);
 			pixel.r++;
 		}
 		pixel.i++;
