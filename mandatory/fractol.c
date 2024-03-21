@@ -6,7 +6,7 @@
 /*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 07:25:00 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/21 08:17:08 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	
 	if (argc == 2 && (!ft_strncmp(argv[1], "mandelbrot", 10)))
 	{
+		fractol.type = argv[1][0];
 		get_mlx(&fractol);
 		data_insialize(&fractol);
 		mandelbrot(fractol);
@@ -48,6 +49,7 @@ int	main(int argc, char **argv)
 	}
 	else if (argc == 4 && (!ft_strncmp(argv[1], "julia", 5)))
 	{
+		fractol.type = argv[1][0];
 		get_mlx(&fractol);
 		data_insialize(&fractol);
 		fractol.julia_x = atodbl(argv[2]);
@@ -56,5 +58,4 @@ int	main(int argc, char **argv)
 		hook(&fractol);
 		mlx_loop(fractol.mlx);
 	}
-	
 }

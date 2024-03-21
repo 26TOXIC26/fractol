@@ -6,7 +6,7 @@
 /*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 07:28:38 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/21 08:15:48 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ typedef struct	s_ml {
 	//julia x-y
 	double julia_x;
 	double julia_y;
+	//type
+	char type;
 }				t_ml;
 
 // function part
