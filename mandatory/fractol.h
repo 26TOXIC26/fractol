@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/20 04:58:05 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/21 00:42:25 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,9 @@ typedef struct	s_ml {
 	double itr;
 	//colors
 	int shift;
+	//julia x-y
+	double julia_x;
+	double julia_y;
 }				t_ml;
 
 // function part
