@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
+#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/20 04:44:34 by amousaid         ###   ########.fr        #
+#    Updated: 2024/03/21 07:29:18 by pc               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ MLX_CMD = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 LIBFT = ./libft/libft.a
 FRACTOL_SRC = ./mandatory/fractol.c\
 				./mandatory/mandelbrot.c\
+				./mandatory/julia.c\
 				./mandatory/zoom.c\
 				./mandatory/hook.c\
 

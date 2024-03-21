@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 00:42:25 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:28:38 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct	s_ml {
 // function part
 int mandelbrot_do(double cr, double  ci, int itr);
 void mandelbrot(t_ml param);
+void julia(t_ml fractol);
 void	my_mlx_pixel_put(t_ml *data, int x, int y, int color);
 
 // hook part

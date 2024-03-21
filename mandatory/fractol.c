@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 01:52:34 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/21 07:25:00 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,12 @@ int	main(int argc, char **argv)
 	else if (argc == 4 && (!ft_strncmp(argv[1], "julia", 5)))
 	{
 		get_mlx(&fractol);
+		data_insialize(&fractol);
+		fractol.julia_x = atodbl(argv[2]);
+		fractol.julia_y = atodbl(argv[3]);
+		julia(fractol);
+		hook(&fractol);
+		mlx_loop(fractol.mlx);
 	}
 	
 }
