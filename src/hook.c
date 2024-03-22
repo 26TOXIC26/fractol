@@ -6,7 +6,7 @@
 /*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:24:50 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/22 04:49:04 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/22 21:38:46 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	close_all(t_ml *param)
 	exit(0);
 }
 
-int	keycheck(int keycode, t_ml *param)
+int key_do(int keycode, t_ml *param)
 {
 	if (keycode == XK_Escape)
 		close_all(param);
@@ -42,6 +42,12 @@ int	keycheck(int keycode, t_ml *param)
 	else if (keycode == KEY_2 && param->shift > 0)
 		param->shift--;
 	else
+		return (0);
+}
+
+int	keycheck(int keycode, t_ml *param)
+{
+	if (!key_do(keycode, param))
 		return (0);
 	if (param->type == 'm')
 		mandelbrot(*param);
