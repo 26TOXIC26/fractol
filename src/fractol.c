@@ -23,7 +23,7 @@ void	my_mlx_pixel_put(t_ml *data, int x, int y, int color)
 void	get_mlx(t_ml *fractol)
 {
 	fractol->mlx = mlx_init();
-	fractol->win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, "Hello world!");
+	fractol->win = mlx_new_window(fractol->mlx, WIDTH, HEIGHT, "FRACTOL");
 	fractol->img = mlx_new_image(fractol->mlx, WIDTH, HEIGHT);
 	fractol->addr = mlx_get_data_addr(fractol->img, &fractol->bits_per_pixel,
 			&fractol->line_length, &fractol->endian);
