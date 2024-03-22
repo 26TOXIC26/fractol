@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:24:50 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 20:59:34 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/22 04:49:04 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ int	keycheck(int keycode, t_ml *param)
 		mandelbrot(*param);
 	else if (param->type == 'j')
 		julia(*param);
+	else if (param->type == 's')
+		burning_ship(*param);
 	return (0);
 }
 

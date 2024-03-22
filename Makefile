@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
+#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/21 23:23:34 by amousaid         ###   ########.fr        #
+#    Updated: 2024/03/22 04:26:23 by pc               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ LIBFT = ./libft/libft.a
 FRACTOL_SRC = ./src/fractol.c\
 				./src/mandelbrot.c\
 				./src/julia.c\
+				./src/burning_ship.c\
 				./src/zoom.c\
 				./src/hook.c\
 				./src/check.c\

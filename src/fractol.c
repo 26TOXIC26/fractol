@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 23:07:29 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/22 04:37:09 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,15 @@ int	main(int argc, char **argv)
 {
 	t_ml	fractol;
 
-	if (argc == 2 && (!ft_strncmp(argv[1], "mandelbrot", 10)))
+	if (argc == 2 && ((!ft_strncmp(argv[1], "mandelbrot", 10)) || (!ft_strncmp(argv[1], "ship", 4))))
 	{
 		fractol.type = argv[1][0];
 		get_mlx(&fractol);
 		data_insialize(&fractol, 0, 0);
-		mandelbrot(fractol);
+		if (argv[1][0] == 'm')
+			mandelbrot(fractol);
+		else
+			burning_ship(fractol);
 		hook(&fractol);
 		mlx_loop(fractol.mlx);
 	}

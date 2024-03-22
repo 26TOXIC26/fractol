@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zoom.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:23:21 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 20:59:19 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/22 04:40:36 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int	mouse_move(int botton, int x, int y, t_ml *fractol)
 		mandelbrot(*fractol);
 	else if (fractol->type == 'j')
 		julia(*fractol);
+	else if (fractol->type == 's')
+		burning_ship(*fractol);
 	return (0);
 }

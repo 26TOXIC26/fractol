@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 21:17:05 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/22 04:21:40 by pc               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <X11/keysym.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -66,6 +67,7 @@ typedef struct s_ml
 // function part
 void		mandelbrot(t_ml param);
 void		julia(t_ml fractol);
+void burning_ship(t_ml fractol);
 void		my_mlx_pixel_put(t_ml *data, int x, int y, int color);
 int			check_arg(char *s);
 // hook part
