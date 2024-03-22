@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:24:50 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 08:23:55 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/21 20:59:34 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	close_all(t_ml *param)
 	exit(0);
 }
 
-int keycheck(int keycode, t_ml *param)
+int	keycheck(int keycode, t_ml *param)
 {
 	if (keycode == XK_Escape)
 		close_all(param);
@@ -37,10 +37,10 @@ int keycheck(int keycode, t_ml *param)
 		param->itr *= 1.05;
 	else if (keycode == MAINIS_KEY)
 		param->itr *= 0.95;
-    else if (keycode == KEY_1 && param->shift <= 16)
-        param->shift++;
-    else if (keycode == KEY_2 && param->shift > 0)
-        param->shift--;
+	else if (keycode == KEY_1 && param->shift <= 16)
+		param->shift++;
+	else if (keycode == KEY_2 && param->shift > 0)
+		param->shift--;
 	else
 		return (0);
 	if (param->type == 'm')
@@ -50,9 +50,10 @@ int keycheck(int keycode, t_ml *param)
 	return (0);
 }
 
-void hook(t_ml *fractol)
+void	hook(t_ml *fractol)
 {
 	mlx_mouse_hook(fractol->win, mouse_move, fractol);
 	mlx_hook(fractol->win, KeyPress, KeyPressMask, keycheck, fractol);
-	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_all, fractol);
+	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_all,
+		fractol);
 }

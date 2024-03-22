@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
+#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/29 22:38:46 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/21 07:29:18 by pc               ###   ########.fr        #
+#    Updated: 2024/03/21 23:23:34 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ MLX_NAME = ./minilibx/libmlx.a
 MLX_CMD = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 
 LIBFT = ./libft/libft.a
-FRACTOL_SRC = ./mandatory/fractol.c\
-				./mandatory/mandelbrot.c\
-				./mandatory/julia.c\
-				./mandatory/zoom.c\
-				./mandatory/hook.c\
-
+FRACTOL_SRC = ./src/fractol.c\
+				./src/mandelbrot.c\
+				./src/julia.c\
+				./src/zoom.c\
+				./src/hook.c\
+				./src/check.c\
+				./src/error.c
 OBJ = $(FRACTOL_SRC:.c=.o)
 
 all: $(NAME)

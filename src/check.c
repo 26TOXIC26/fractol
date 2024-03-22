@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 19:58:43 by amousaid          #+#    #+#             */
-/*   Updated: 2023/11/24 01:01:51 by amousaid         ###   ########.fr       */
+/*   Created: 2024/03/21 20:01:05 by amousaid          #+#    #+#             */
+/*   Updated: 2024/03/21 20:59:27 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fractol.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	check_arg(char *s)
 {
-	void	*ptr;
-	size_t	total;
+	int	i;
 
-	total = size * count;
-	if (total == 0)
+	i = 0;
+	if ((s[i] >= 48 && s[i] <= 57) || s[i] == '-' || s[i] == '+')
 	{
-		ptr = malloc(1);
-		((char *)ptr)[0] = 0;
+		while (s[i])
+		{
+			if (ft_isdigit(s[i]) == 0)
+				return (0);
+			i++;
+		}
+		return (1);
 	}
-	else
-	{
-		if (size && ((total / size) != (count)))
-			return (NULL);
-		ptr = malloc(total);
-		if (ptr == NULL)
-			return (NULL);
-		ft_bzero(ptr, total);
-	}
-	return (ptr);
+	return (0);
 }
