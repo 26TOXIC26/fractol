@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:10:13 by pc                #+#    #+#             */
-/*   Updated: 2024/03/21 23:19:41 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/23 05:08:05 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ double	d_part(char *s)
 	double_part = 0;
 	if (s[i] == '.')
 		i++;
-	while (s[i])
+	if (s[i] >= 48 && s[i] <= 57)
 	{
-		if (s[i] == '+' || s[i] == '-' || s[i] == '.')
-			is_error();
-		power /= 10;
-		double_part = double_part + (s[i++] - 48) * power;
+		while (s[i])
+		{
+			if (s[i] == '+' || s[i] == '-' || s[i] == '.')
+				is_error();
+			power /= 10;
+			double_part = double_part + (s[i++] - 48) * power;
+		}
 	}
+	else
+		is_error();
 	return (double_part);
 }
 
@@ -48,11 +53,16 @@ double	atodbl(char *s)
 			sign *= -1;
 		i++;
 	}
+	if (s[i] == '.')
+		is_error();
 	while (s[i] != '.' && s[i])
 	{
 		if (s[i] == '+' || s[i] == '-')
 			is_error();
 		int_part = (int_part * 10) + (s[i++] - 48);
 	}
-	return ((int_part + d_part(&s[i])) * sign);
+	if (s[i] == '.')
+		return ((int_part + d_part(&s[i])) * sign);
+	else
+		return (int_part * sign);
 }

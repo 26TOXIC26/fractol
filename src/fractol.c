@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 22:38:13 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/22 04:37:09 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/23 04:04:45 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,19 @@ int	main(int argc, char **argv)
 {
 	t_ml	fractol;
 
-	if (argc == 2 && ((!ft_strncmp(argv[1], "mandelbrot", 10)) || (!ft_strncmp(argv[1], "ship", 4))))
+	if (argc == 2 && ((!ft_strcmp(argv[1], "mandelbrot"))
+			|| (!ft_strcmp(argv[1], "ship"))))
+		call_mandelbrot_ship(&fractol, argv[1]);
+	else if ((argc == 4 || argc == 2) && (!ft_strcmp(argv[1], "julia")))
 	{
 		fractol.type = argv[1][0];
-		get_mlx(&fractol);
-		data_insialize(&fractol, 0, 0);
-		if (argv[1][0] == 'm')
-			mandelbrot(fractol);
-		else
-			burning_ship(fractol);
-		hook(&fractol);
-		mlx_loop(fractol.mlx);
-	}
-	else if (argc == 4 && (!ft_strncmp(argv[1], "julia", 5)))
-	{
-		if (check_arg(argv[2]) == 0 || check_arg(argv[3]) == 0)
-			is_error();
-		fractol.type = argv[1][0];
-		data_insialize(&fractol, atodbl(argv[2]), atodbl(argv[3]));
+		data_insialize(&fractol, 0, 0.8);
+		if (argc == 4)
+		{
+			if (check_arg(argv[2]) == 0 || check_arg(argv[3]) == 0)
+				is_error();
+			data_insialize(&fractol, atodbl(argv[2]), atodbl(argv[3]));
+		}
 		get_mlx(&fractol);
 		julia(fractol);
 		hook(&fractol);

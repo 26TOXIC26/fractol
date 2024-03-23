@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 04:08:37 by pc                #+#    #+#             */
-/*   Updated: 2024/03/22 05:35:51 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/23 00:27:16 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int buring_ship_do(double cr, double ci, t_ml fractol)
+int	buring_ship_do(double cr, double ci, t_ml fractol)
 {
-    double	tmp;
+	double	tmp;
 	int		i;
 	t_ml	z;
 
@@ -26,8 +26,8 @@ int buring_ship_do(double cr, double ci, t_ml fractol)
 	{
 		if ((z.r * z.r + z.i * z.i) > 4.0)
 			return (i);
-        z.r = fabs(z.r);
-        z.i = fabs(z.i);
+		z.r = fabs(z.r);
+		z.i = fabs(z.i);
 		tmp = (z.r * z.r) - (z.i * z.i);
 		z.i = 2 * z.r * z.i + ci;
 		z.r = tmp + cr;
@@ -35,9 +35,10 @@ int buring_ship_do(double cr, double ci, t_ml fractol)
 	}
 	return (0);
 }
-void burning_ship(t_ml fractol)
+
+void	burning_ship(t_ml fractol)
 {
-    t_ml	pixel;
+	t_ml	pixel;
 	t_ml	scile;
 
 	pixel.i = 0;
@@ -45,7 +46,7 @@ void burning_ship(t_ml fractol)
 	while (pixel.i < HEIGHT)
 	{
 		scile.i = ((((pixel.i / HEIGHT) * 4 - 2) * -1) * fractol.zoom
-			+ fractol.plus_y + fractol.mainis_y) * -1;
+				+ fractol.plus_y + fractol.mainis_y) * -1;
 		while (pixel.r < WIDTH)
 		{
 			scile.r = ((pixel.r / WIDTH) * 4 - 2) * fractol.zoom
@@ -60,6 +61,6 @@ void burning_ship(t_ml fractol)
 		}
 		pixel.i++;
 		pixel.r = 0;
-    }
+	}
 	mlx_put_image_to_window(fractol.mlx, fractol.win, fractol.img, 0, 0);
 }

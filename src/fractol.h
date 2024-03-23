@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 00:03:57 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/22 04:21:40 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/23 00:35:32 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@
 # include "../minilibx/mlx_int.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include <stdio.h>
-# include <stdlib.h>
 # include <math.h>
+# include <stdio.h>
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -67,9 +66,12 @@ typedef struct s_ml
 // function part
 void		mandelbrot(t_ml param);
 void		julia(t_ml fractol);
-void burning_ship(t_ml fractol);
+void		burning_ship(t_ml fractol);
+void		call_mandelbrot_ship(t_ml *fractol, char *type);
 void		my_mlx_pixel_put(t_ml *data, int x, int y, int color);
 int			check_arg(char *s);
+void		data_insialize(t_ml *fractol, double x, double y);
+void		get_mlx(t_ml *fractol);
 // hook part
 int			close_all(t_ml *param);
 int			keycheck(int keycode, t_ml *param);

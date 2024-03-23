@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pc <pc@student.42.fr>                      +#+  +:+       +#+         #
+#    By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 10:31:55 by amousaid          #+#    #+#              #
-#    Updated: 2024/03/20 21:27:23 by pc               ###   ########.fr        #
+#    Updated: 2024/03/23 04:05:25 by amousaid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC= ft_isalpha.c\
      ft_putnbr_fd.c\
      ft_memcpy.c\
      atodbl.c\
+     ft_strcmp.c\
 
 BONUS_SRC= ft_lstnew_bonus.c\
 	   ft_lstadd_front_bonus.c\

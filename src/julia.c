@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 07:17:06 by pc                #+#    #+#             */
-/*   Updated: 2024/03/22 00:25:02 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/23 00:37:27 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ int	julia_do(double cr, double ci, t_ml fractol)
 	}
 	return (0);
 }
-/// z1 = z02 + c
-/// z0 = z
 
 void	julia(t_ml fractol)
 {

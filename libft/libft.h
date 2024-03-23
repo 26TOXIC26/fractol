@@ -6,13 +6,14 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:25:47 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/21 23:22:13 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/23 04:03:38 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "../src/fractol.h"
 # include <fcntl.h>
 # include <limits.h>
 # include <stddef.h>
@@ -21,7 +22,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include "../src/fractol.h"
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -58,7 +58,8 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putchar_fd(char c, int fd);
-double atodbl(char *s);
+double				atodbl(char *s);
+int					ft_strcmp(char *s1, char *s2);
 // bonus part
 typedef struct s_list
 {

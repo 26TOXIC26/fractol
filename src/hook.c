@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pc <pc@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:24:50 by amousaid          #+#    #+#             */
-/*   Updated: 2024/03/22 21:38:46 by pc               ###   ########.fr       */
+/*   Updated: 2024/03/23 00:03:42 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,18 @@ int	close_all(t_ml *param)
 	exit(0);
 }
 
-int key_do(int keycode, t_ml *param)
+int	key_do(t_ml param)
+{
+	if (param.type == 'm')
+		mandelbrot(param);
+	else if (param.type == 'j')
+		julia(param);
+	else if (param.type == 's')
+		burning_ship(param);
+	return (0);
+}
+
+int	keycheck(int keycode, t_ml *param)
 {
 	if (keycode == XK_Escape)
 		close_all(param);
@@ -43,18 +54,7 @@ int key_do(int keycode, t_ml *param)
 		param->shift--;
 	else
 		return (0);
-}
-
-int	keycheck(int keycode, t_ml *param)
-{
-	if (!key_do(keycode, param))
-		return (0);
-	if (param->type == 'm')
-		mandelbrot(*param);
-	else if (param->type == 'j')
-		julia(*param);
-	else if (param->type == 's')
-		burning_ship(*param);
+	key_do(*param);
 	return (0);
 }
 
