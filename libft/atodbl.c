@@ -6,7 +6,7 @@
 /*   By: amousaid <amousaid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:10:13 by pc                #+#    #+#             */
-/*   Updated: 2024/03/23 05:08:05 by amousaid         ###   ########.fr       */
+/*   Updated: 2024/03/24 01:46:57 by amousaid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,17 @@ double	atodbl(char *s)
 			sign *= -1;
 		i++;
 	}
-	if (s[i] == '.')
-		is_error();
-	while (s[i] != '.' && s[i])
+	if (s[i] >= '0' && s[i] <= '9')
 	{
-		if (s[i] == '+' || s[i] == '-')
-			is_error();
-		int_part = (int_part * 10) + (s[i++] - 48);
+		while (s[i] != '.' && s[i])
+		{
+			if (s[i] == '+' || s[i] == '-')
+				is_error();
+			int_part = (int_part * 10) + (s[i++] - 48);
+		}
 	}
+	else
+		is_error();
 	if (s[i] == '.')
 		return ((int_part + d_part(&s[i])) * sign);
 	else
